@@ -17,7 +17,7 @@ class RegisterFragment : Fragment() {
     ): View? {
         binding = FragmentRegisterBinding.inflate(inflater, container, false).apply {
 
-            tvSignin.setOnClickListener {findNavController().navigate(R.id.action_registerFragment_to_loginFragment) }
+            tvSignin.setOnClickListener {findNavController().navigate(R.id.action_registerFragment_to_loginFragment)}
             btnRegister.setOnClickListener {findNavController().navigate(R.id.action_registerFragment_to_loginFragment) }
 
         }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main"
+    android:background="@color/colorAuthentication"
     tools:context=".fragments.LoginFragment">
 
     <TextView
@@ -68,7 +68,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:hint="Password"
-
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toTopOf="@id/btn_login"
         app:layout_constraintEnd_toEndOf="parent"
@@ -99,5 +98,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

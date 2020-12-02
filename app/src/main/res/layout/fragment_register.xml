@@ -6,16 +6,16 @@
     android:layout_height="match_parent"
     android:background="@color/main"
     tools:context=".views.fragments.RegisterFragment">
+
     <ProgressBar
+        android:id="@+id/pb_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/pb_signup"
         android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_signin"
@@ -50,11 +50,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:hint="Name"
+        app:hintTextColor="@color/white"
+
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toTopOf="@id/til_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:startIconDrawable="@drawable/ic_email">
+        app:startIconDrawable="@drawable/ic_name"
+        app:startIconTint="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tie_name"
@@ -74,13 +77,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        app:hintTextColor="@color/white"
+
         android:layout_marginBottom="16dp"
         android:hint="Email"
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toTopOf="@id/til_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:startIconDrawable="@drawable/ic_email">
+        app:startIconDrawable="@drawable/ic_email"
+        app:startIconTint="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tie_email"
@@ -100,12 +106,16 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:hint="Password"
+        app:hintTextColor="@color/white"
+
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toTopOf="@id/btn_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:passwordToggleEnabled="true"
-        app:startIconDrawable="@drawable/ic_password">
+        app:passwordToggleTint="@color/white"
+        app:startIconDrawable="@drawable/ic_password"
+        app:startIconTint="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tie_password"

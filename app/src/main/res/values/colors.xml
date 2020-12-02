@@ -16,5 +16,7 @@
     <color name="colorBackground">#F1F3F6</color>
     <color name="colorDanger">#e94560</color>
     <color name="colorAuthentication">#05466a</color>
+    <color name="colorEdittext">#446377</color>
+
 
 </resources>

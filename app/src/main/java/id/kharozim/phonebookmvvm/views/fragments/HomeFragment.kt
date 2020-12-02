@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import id.kharozim.phonebookmvvm.R
 import id.kharozim.phonebookmvvm.databinding.FragmentHomeBinding
 import id.kharozim.phonebookmvvm.helper.PreferenceHelper
 import id.kharozim.phonebookmvvm.repository.ContactRemoteRepo
@@ -40,7 +42,7 @@ class HomeFragment : Fragment(), ContactAdapter.ListenerContact {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-
+        binding.ivAdd.setOnClickListener { findNavController().navigate(R.id.action_homeFragment_to_createFragment) }
 
         setView()
         setObserver()

@@ -1,29 +1,34 @@
 package id.kharozim.phonebookmvvm.viewmodels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import id.kharozim.phonebookmvvm.repository.clients.LoginClient
-import id.kharozim.phonebookmvvm.repository.request.LoginRequest
-import id.kharozim.phonebookmvvm.states.LoginState
+import androidx.lifecycle.*
+import id.kharozim.phonebookmvvm.repository.UserRemoteRepo
+import id.kharozim.phonebookmvvm.repository.remote.clients.UserClient
+import id.kharozim.phonebookmvvm.repository.remote.request.LoginBody
+import id.kharozim.phonebookmvvm.views.states.LoginState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class LoginViewModel : ViewModel() {
-    private val service by lazy { LoginClient.loginService }
+class LoginViewModelFactory(
+    private val remoteRepo: UserRemoteRepo
+) :ViewModelProvider.Factory{
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        return LoginViewModel(remoteRepo) as T
+    }
+}
+
+class LoginViewModel(private val remoteRepo: UserRemoteRepo) : ViewModel() {
+    private val service by lazy { UserClient.userService }
     private val mutableState by lazy { MutableLiveData<LoginState>() }
     val state : LiveData<LoginState>
         get() = mutableState
 
     fun login(email : String, password : String){
-
-        val body = LoginRequest(password,email)
+        val body = LoginBody(password,email)
         mutableState.value = LoginState.Loading()
         viewModelScope.launch(Dispatchers.IO){
             try {
                 val loginResponse = service.getLogin(body).data
-                mutableState.postValue(LoginState.Login(loginResponse))
+                mutableState.postValue(LoginState.SuccessLogin(loginResponse))
 
             }catch (exc: Exception){
                 exc.printStackTrace()

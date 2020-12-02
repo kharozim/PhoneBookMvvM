@@ -1,15 +1,14 @@
-package id.kharozim.phonebookmvvm.repository.clients
+package id.kharozim.phonebookmvvm.repository.remote.clients
 
 import com.google.gson.GsonBuilder
-import id.kharozim.phonebookmvvm.repository.services.ContactService
-import id.kharozim.phonebookmvvm.repository.services.SignUpService
-import id.kharozim.phonebookmvvm.repository.utils.ConstantUtil
+import id.kharozim.phonebookmvvm.repository.remote.services.UserService
+import id.kharozim.phonebookmvvm.repository.remote.utils.ConstantUtil
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object SignUpClient {
+object UserClient {
     private val interceptor by lazy { HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)}
 
     private val client by lazy { OkHttpClient.Builder().addInterceptor(interceptor).build()}
@@ -21,7 +20,7 @@ object SignUpClient {
             .client(client)
             .build()
     }
-    val signupService by lazy {
-        retrofit.create(SignUpService::class.java)
+    val userService by lazy {
+        retrofit.create(UserService::class.java)
     }
 }

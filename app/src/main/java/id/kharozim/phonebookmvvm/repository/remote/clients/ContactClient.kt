@@ -1,8 +1,8 @@
-package id.kharozim.phonebookmvvm.repository.clients
+package id.kharozim.phonebookmvvm.repository.remote.clients
 
 import com.google.gson.GsonBuilder
-import id.kharozim.phonebookmvvm.repository.services.ContactService
-import id.kharozim.phonebookmvvm.repository.utils.ConstantUtil
+import id.kharozim.phonebookmvvm.repository.remote.services.ContactService
+import id.kharozim.phonebookmvvm.repository.remote.utils.ConstantUtil
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

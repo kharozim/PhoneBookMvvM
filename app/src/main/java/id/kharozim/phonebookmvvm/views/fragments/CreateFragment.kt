@@ -1,4 +1,4 @@
-package id.kharozim.phonebookmvvm.fragments
+package id.kharozim.phonebookmvvm.views.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,21 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import id.kharozim.phonebookmvvm.R
-import id.kharozim.phonebookmvvm.databinding.FragmentHomeBinding
+import id.kharozim.phonebookmvvm.databinding.FragmentCreateBinding
 import id.kharozim.phonebookmvvm.databinding.FragmentLoginBinding
 
-class HomeFragment : Fragment() {
+class CreateFragment : Fragment() {
 
-    private lateinit var binding: FragmentHomeBinding
-
+    private lateinit var binding: FragmentCreateBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding = FragmentCreateBinding.inflate(inflater, container, false)
 
         return binding.root
     }
 }
-
-

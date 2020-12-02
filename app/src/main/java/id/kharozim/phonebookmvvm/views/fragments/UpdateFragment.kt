@@ -1,4 +1,4 @@
-package id.kharozim.phonebookmvvm.fragments
+package id.kharozim.phonebookmvvm.views.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

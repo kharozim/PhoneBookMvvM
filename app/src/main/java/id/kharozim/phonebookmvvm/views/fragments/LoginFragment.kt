@@ -1,7 +1,6 @@
-package id.kharozim.phonebookmvvm.fragments
+package id.kharozim.phonebookmvvm.views.fragments
 
 import android.os.Bundle
-import android.renderscript.ScriptGroup
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,14 +10,26 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import id.kharozim.phonebookmvvm.R
 import id.kharozim.phonebookmvvm.databinding.FragmentLoginBinding
-import id.kharozim.phonebookmvvm.states.LoginState
+import id.kharozim.phonebookmvvm.databinding.FragmentRegisterBinding
+import id.kharozim.phonebookmvvm.helper.PreferenceHelper
+import id.kharozim.phonebookmvvm.repository.UserRemoteRepo
+import id.kharozim.phonebookmvvm.repository.remote.UserRemoteRepoImpl
+import id.kharozim.phonebookmvvm.repository.remote.clients.UserClient
+import id.kharozim.phonebookmvvm.views.states.LoginState
 import id.kharozim.phonebookmvvm.viewmodels.LoginViewModel
-import kotlinx.android.synthetic.main.fragment_login.*
+import id.kharozim.phonebookmvvm.viewmodels.SignUpViewModel
+import id.kharozim.phonebookmvvm.viewmodels.SignUpViewModelFactory
 
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
     private val loginViewModel by viewModels<LoginViewModel>()
+    private val sharePref by lazy { PreferenceHelper(requireContext()) }
+
+    private val service by lazy { UserClient.userService }
+    private val remoteRepo: UserRemoteRepo by lazy { UserRemoteRepoImpl(service) }
+    private val viewModelFactory by lazy { SignUpViewModelFactory(remoteRepo) }
+    private val viewModel by viewModels<LoginViewModel> { viewModelFactory }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,12 +53,17 @@ class LoginFragment : Fragment() {
 
             loginViewModel.state.observe(viewLifecycleOwner) {
                 when (it) {
-                    is LoginState.Login -> {
-//                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-                        Toast.makeText(requireContext(), "${it.data.token}", Toast.LENGTH_SHORT)
+                    is LoginState.SuccessLogin -> {
+//                        sharePref.put(Constant.PREF_TOKEN, it.data.token)
+                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                        Toast.makeText(requireContext(), "${it.data}", Toast.LENGTH_SHORT)
                             .show()
                     }
-                    is LoginState.Error -> Toast.makeText(requireContext(), it.exception.message, Toast.LENGTH_SHORT).show()
+                    is LoginState.Error -> Toast.makeText(
+                        requireContext(),
+                        it.exception.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }

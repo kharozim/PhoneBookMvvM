@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="id.kharozim.phonebookmvvm.fragments.LoginFragment"
+        android:name="id.kharozim.phonebookmvvm.views.fragments.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -19,16 +19,19 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="id.kharozim.phonebookmvvm.fragments.RegisterFragment"
+        android:name="id.kharozim.phonebookmvvm.views.fragments.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="id.kharozim.phonebookmvvm.fragments.HomeFragment"
+        android:name="id.kharozim.phonebookmvvm.views.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -40,12 +43,12 @@
     </fragment>
     <fragment
         android:id="@+id/createFragment"
-        android:name="id.kharozim.phonebookmvvm.fragments.CreateFragment"
+        android:name="id.kharozim.phonebookmvvm.views.fragments.CreateFragment"
         android:label="fragment_create"
         tools:layout="@layout/fragment_create" />
     <fragment
         android:id="@+id/updateFragment"
-        android:name="id.kharozim.phonebookmvvm.fragments.UpdateFragment"
+        android:name="id.kharozim.phonebookmvvm.views.fragments.UpdateFragment"
         android:label="fragment_update"
         tools:layout="@layout/fragment_update" />
 </navigation>

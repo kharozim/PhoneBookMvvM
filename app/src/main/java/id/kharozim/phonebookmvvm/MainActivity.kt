@@ -4,9 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import id.kharozim.phonebookmvvm.databinding.ActivityMainBinding
-import id.kharozim.phonebookmvvm.repository.clients.ContactClient
-import id.kharozim.phonebookmvvm.repository.responses.BaseResponse
-import id.kharozim.phonebookmvvm.repository.responses.ContactResponse
+import id.kharozim.phonebookmvvm.repository.remote.clients.ContactClient
+import id.kharozim.phonebookmvvm.repository.remote.responses.BaseResponse
+import id.kharozim.phonebookmvvm.repository.remote.responses.ContactResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

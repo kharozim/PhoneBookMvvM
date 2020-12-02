@@ -1,4 +1,4 @@
-package id.kharozim.phonebookmvvm.repository.responses
+package id.kharozim.phonebookmvvm.repository.remote.responses
 
 import com.google.gson.annotations.SerializedName
 

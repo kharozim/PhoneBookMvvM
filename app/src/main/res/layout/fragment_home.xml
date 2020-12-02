@@ -6,7 +6,16 @@
     android:layout_height="match_parent"
     android:background="@color/main"
     tools:context=".views.fragments.HomeFragment">
-
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pb_home"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
     <TextView
         android:id="@+id/tv_contact"
         android:layout_width="wrap_content"
